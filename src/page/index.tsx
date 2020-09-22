@@ -26,7 +26,7 @@ function LandingPage(){
                 </RectButton>
             </View>
             <View>
-                <a>Esqueceu a senha ?</a>
+                <Text>Esqueceu a senha ?</Text>
             </View>
         </View>
     )

@@ -1,8 +1,13 @@
-import React from 'react';
-import App from './src';
+import { StatusBar } from 'expo-status-bar';
+import React from 'react'
 
+import AppStack from './src/routes/AppStack';
 
-
-export default function Main(){
-  return <App/>
+export default function App(){
+  return(
+    <>
+      <AppStack />
+      <StatusBar style="light" />
+    </>
+  )
 }

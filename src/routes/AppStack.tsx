@@ -2,12 +2,14 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 
-import LandingPage from '../pages/LandingPage';
-import LandingPageCompany from '../pages/LandingPageCompany';
-import LoginClient from '../pages/LoginPage/client/index';
-import LoginCompany from '../pages/LoginPage/company/index';
-import RegisterPage from '../pages/RegisterPage';
-import ResetPassPage from '../pages/ResetPassPage';
+import LandingPage from '../pages/Client/LandingPage';
+import LandingPageCompany from '../pages/Company/LandingPageCompany';
+import LoginPage from '../pages/Client/LoginPage';
+import LoginPageCompany from '../pages/Company/LoginPageCompany';
+import RegisterPage from '../pages/Client/RegisterPage';
+import RegisterPageCompany from '../pages/Company/RegisterPageCompany';
+import ResetPassPage from '../pages/Client/ResetPassPage';
+import ClientTabs from './ClientTabs';
 
 
 const {Navigator, Screen} = createStackNavigator();
@@ -18,10 +20,12 @@ function AppStack(){
             <Navigator screenOptions={{ headerShown: false}}>
                 <Screen name="LandingPage" component={LandingPage}/>
                 <Screen name="LandingCompany" component={LandingPageCompany} />
-                <Screen name="LoginClient" component={LoginClient} />
-                <Screen name="LoginCompany" component={LoginCompany} />
+                <Screen name="LoginPage" component={LoginPage} />
+                <Screen name="LoginCompany" component={LoginPageCompany} />
                 <Screen name="RegisterPage" component={RegisterPage} />
+                <Screen name="RegisterCompany" component={RegisterPageCompany} />
                 <Screen name="ResetPassPage" component={ResetPassPage} />
+                <Screen name="ClientTabs" component={ClientTabs} />
             </Navigator>
         </NavigationContainer>
     )

@@ -2,7 +2,7 @@ import { RectButton, ScrollView } from 'react-native-gesture-handler';
 import React from 'react';
 import { Text, View, Image } from 'react-native';
 import styles from './styles';
-import logoImage from '../assets/images/logo.png';
+import logoImage from '../../../assets/images/logo.png';
 
 
 function SchedulePage(){

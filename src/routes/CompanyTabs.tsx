@@ -1,13 +1,11 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-import InitialPage from '../pages/Client/InitialPage';
-import SchedulePage from '../pages/Client/SchedulePage';
-import PerfilPage from '../pages/Client/PerfilPage';
+import SchedulePageCompany from '../pages/Company/SchedulePageCompany';
 
 const Tab = createBottomTabNavigator();
 
-function ClientTabs(){
+function CompanyTabs(){
     return(
         <Tab.Navigator
             tabBarOptions={{
@@ -22,27 +20,22 @@ function ClientTabs(){
         >
             <Tab.Screen 
                 name="Initial" 
-                component={InitialPage} 
+                component={SchedulePageCompany} 
                 options={{
                     tabBarLabel: 'Página Inicial',
                 }}    
             />
+
             <Tab.Screen 
                 name="Schedule" 
-                component={SchedulePage} 
+                component={SchedulePageCompany} 
                 options={{
-                    tabBarLabel: 'Agenda'
+                    tabBarLabel: 'Agenda de Horarios',
                 }}    
             />
-            <Tab.Screen 
-                name="Perfil" 
-                component={PerfilPage}
-                options={{
-                    tabBarLabel: 'Perfil'
-                }} 
-            />
+            
         </Tab.Navigator>
     );
 }
 
-export default ClientTabs;
+export default CompanyTabs;

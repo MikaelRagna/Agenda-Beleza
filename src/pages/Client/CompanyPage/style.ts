@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#ffdb00'
     },
 
-    logo: {
+    logoView: {
         marginTop: '18%',
     },
 
@@ -17,13 +17,19 @@ const styles = StyleSheet.create({
         height: 70,
     },
 
-    textCenter:{
+    textBold: {
+        fontWeight: 'bold',
         textAlign: 'center',
         fontSize: 18,
-        marginBottom: 10,
     },
 
-    sview:{
+    text:{
+        textAlign: 'center',
+        fontSize: 14,
+        marginBottom: 5,
+    },
+
+    scView:{
         flex: 1,
         width: '80%',
         marginBottom: 10,
@@ -31,25 +37,30 @@ const styles = StyleSheet.create({
         borderRadius: 5,
     },
 
-    saloes:{
-        backgroundColor: '#000',
-        width: '90%',
-        borderRadius: 7,
-        marginTop: 15,
-        padding: '5%', 
-        marginLeft: 13   
+
+    picker: {
+        textAlign: 'center',
+        borderWidth: 1,
+        borderColor: '#000',
+        borderRadius: 5,
+        marginBottom: 3,
     },
 
-    saloonTitle: {
+    button:{
+        width: '80%',
+        padding: 10,
+        borderRadius: 5,
+        backgroundColor: '#00c41a',
+        marginTop: 5,
+        marginBottom: 5,
+    },
+
+    textButton:{
         color: '#fff',
-        fontWeight: 'bold',
         textAlign: 'center',
-    },
-
-    saloonText: {
-        color: '#fff',  
-        textAlign: 'center',
+        fontSize: 15,
     }
-})
+
+});
 
 export default styles;

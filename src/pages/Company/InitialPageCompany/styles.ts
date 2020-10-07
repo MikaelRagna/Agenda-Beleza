@@ -2,49 +2,61 @@ import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
     container:{
-        flex: 1,
+        flex:1,
         backgroundColor: '#ffdb00',
-        alignItems: 'center'
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
 
+    logoView:{
+        marginBottom: '18%'
     },
-    logo:{
-        marginTop: '10%'
-    },
-    imageLogo:{
+
+    logoImg:{
         width: 300,
-        height: 70,
+        height: 70
     },
-    logoPerfil:{
-        textAlign: 'center'
+
+    txtLogo:{
+        textAlign: 'center',
+        fontSize: 18,
+        fontWeight: 'bold',
     },
-    boxText:{
+
+    pickerView:{
+        textAlign: 'center',
         backgroundColor: '#fff',
         width: '80%',
-        height: '5%',
-        marginTop: 30,
+        borderRadius: 10,
+        borderWidth: 5,
+        borderColor: '#000'  
     },
+
+    inputTxt:{
+        backgroundColor: '#fff',
+        marginTop: 10,
+        width: '80%',
+        height: 45,
+        borderRadius: 10,
+        borderWidth: 5,
+        borderColor: '#000',
+        textAlign: 'center',
+        
+    },
+
     btn:{
         backgroundColor: '#00c41a',
-        marginTop: 20,
-        borderRadius: 5,
-        width: '50%',
-        height: '5%',
-        alignItems: 'center',
-        justifyContent: 'center'
+        width: '40%',
+        borderRadius: 7,
+        padding: 10,
+        marginTop: 10
     },
-    btnText:{
+
+    btnTxt:{
+        textAlign: 'center',
         color: '#fff'
-    },
-    hours:{
-        flex: 1,
-        width: '80%',
-        marginBottom: 10,
-        backgroundColor: '#fff',
-        borderRadius: 10,
-        marginTop: 10,
-        borderWidth: 5,
-        borderColor: '#000'
-    },
+    }
+
 })
 
 export default styles;

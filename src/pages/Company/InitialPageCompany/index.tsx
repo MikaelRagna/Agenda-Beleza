@@ -1,42 +1,80 @@
-import React from 'react';
-import { KeyboardAvoidingView, View, Image, Text, Picker } from 'react-native';
-import { RectButton} from 'react-native-gesture-handler';
-import logoImg from '../assets/logo.png';
+import AsyncStorage from '@react-native-community/async-storage';
+import React, {useState} from 'react';
+import { KeyboardAvoidingView, View, Image, Text, Picker, ScrollView, Alert } from 'react-native';
+import { RectButton, TextInput} from 'react-native-gesture-handler';
+import logoImg from '../../../assets/images/logo.png';
 import styles from './styles';
 
-function ScheduleCompnay(){
+import api from '../../../services/api';
+
+function InitialPageCompany(){
+
+
+    const [weekday, setWeekDay] = useState("")
+    const [from, setFrom] = useState('')
+    const [to, setTo] = useState('')
+
+    async function registerHour(){
+        const id = await AsyncStorage.getItem("token_company")
+
+        const response = await api.post('/freehours', {
+            "id_company": id,
+            "from_hour": from,
+            "to_hour": to,
+            "week_day": weekday
+        })
+
+        if(response){
+            Alert.alert("Sucesso", "Cadastro realizado com sucesso!")
+        }else{
+            Alert.alert("Erro", "Erro ao cadastrar o horário, verifique os dados e tente novamente")
+        }
+    }
+
     return(
         <KeyboardAvoidingView style={styles.container}>
 
-            <View style={styles.logo}>
-                <Image style = {styles.imageLogo} source={logoImg}/>
-                <Text style = {styles.logoPerfil}>Cadastro de Horário</Text>
-              </View>
+            <View style={styles.logoView}>
+                <Image style={styles.logoImg} source={logoImg}/>
+                <Text style={styles.txtLogo}>Cadastro de Horário</Text>
+            </View>
 
-            <View style={styles.boxText}>
-                <Picker>
+            <View style={styles.pickerView}>
+                 <Picker selectedValue={weekday}  onValueChange={(t) => {setWeekDay(t)}}>
                     <Picker.Item label={"Dia da Semana"} value={""}/>
+                    <Picker.Item label={"Domingo"} value={0}/>
+                    <Picker.Item label={"Segunda-feira"} value={1}/>
+                    <Picker.Item label={"Terça-feira"} value={2}/>
+                    <Picker.Item label={"Quarta-feira"} value={3}/>
+                    <Picker.Item label={"Quinta-feira"} value={4}/>
+                    <Picker.Item label={"Sexta-feira"} value={5}/>
+                    <Picker.Item label={"Sabado"} value={6}/>
                 </Picker>
+
             </View>
 
-            <View style={styles.boxText}>
-                <Picker>
-                <Picker.Item label={"Horário"} value={""}/>
-                </Picker>
-            </View>
+            <TextInput 
+                style={styles.inputTxt} 
+                placeholder="Horário inicio"
+                maxLength={5}
+                autoCorrect={false}
+                onChangeText={t => {setFrom(t)}}
+            />
 
-            <RectButton style={styles.btn}>
-                <Text style={styles.btnText}>Confirmar</Text>
+            <TextInput 
+                style={styles.inputTxt} 
+                placeholder="Horário final"
+                maxLength={5}
+                autoCorrect={false}
+                onChangeText={t => {setTo(t)}}
+            />
+
+            <RectButton style={styles.btn} onPress={registerHour}>
+                <Text style={styles.btnTxt}>Confirmar</Text>
             </RectButton>
-
-            <View style={styles.hours}>
-
-            </View>
-
-
 
         </KeyboardAvoidingView>
     );
 }
 
-export default ScheduleCompnay;
+export default InitialPageCompany;
